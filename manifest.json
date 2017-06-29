@@ -1,0 +1,18 @@
+{
+  "manifest_version": 2,
+  "name": "Time Doctor Test",
+  "description": "This extension integrates Time doctor API",
+  "version": "1.0",
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "https://ajax.googleapis.com/",
+    "https://webapi.timedoctor.com/oauth/v2/auth?client_id=735_3hhq9n04qlq8ss8gowg0sog8c44kkc0oww8gkog4w44c04kcos&redirect_uri=http://localhost/&response_type=token"
+  ],
+  "background" : {"scripts" : ["popup.js"] },
+  "content_security_policy": "script-src 'self'; object-src 'self'"
+}

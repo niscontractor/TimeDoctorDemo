@@ -1,0 +1,48 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100);
+
+body {
+    background-image:url('https://webapi.timedoctor.com/bundles/webapi/images/login/background.jpg');
+    background-repeat:repeat;
+}
+
+.taskRow{
+    display: none;
+}
+
+.header {
+    border-collapse: collapse;
+    width: 100%;
+    border:1px solid #eee;
+    color:#666;
+}
+
+.header td, .header th {
+
+    padding: 10px;
+}
+
+.header tr:nth-child(even){background-color: #f2f2f2 ;}
+.header tr:nth-child(odd){background-color: #ffffff ;}
+.header tr:hover {background-color: #ddd;}
+
+.header th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color:#6390d2 ;
+    color: white;
+} 
+
+.button {
+    background-color: #6390d2 ;
+    border: none;
+    color: white;
+    padding: 8px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
