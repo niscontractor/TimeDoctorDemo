@@ -2,16 +2,17 @@ var socket = io.connect('http://34.210.113.0:5002');
 var token = localStorage.getItem("token");
 var refreshToken = localStorage.getItem("refreshToken");
 
-if (token == "null" || !token) {
-    document.getElementById("main").style.display = "block";
-    document.getElementById("home").style.display = "none";
-} else {
-    document.getElementById("main").style.display = "none";
-    document.getElementById("home").style.display = "block";
-    refresh();
-}
-
 window.onload = function (e) {
+
+    if (token == "null" || !token) {
+        document.getElementById("main").style.display = "block";
+        document.getElementById("home").style.display = "none";
+    } else {
+        document.getElementById("main").style.display = "none";
+        document.getElementById("home").style.display = "block";
+        refresh();
+    }
+
     var logoutBtn = document.getElementById('logout');
     logoutBtn.onclick = function () {
         localStorage.setItem("token", null);
