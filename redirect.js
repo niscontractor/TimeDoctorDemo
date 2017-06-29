@@ -20,23 +20,24 @@ window.onload = function (e) {
     };
 
     var loginBtn = document.getElementById('login');
-    logoutBtn.onclick = function () {
+    loginBtn.onclick = function () {
         authenticate();
     };
 }
 
 function authenticate() {
     socket.on('connect', function () {
-        console.log('Client connected');
+        
     });
     socket.on('loginSuccess', function (data) {
-        console.log(data);
-        console.log("success");
+        
         token = data.token.token;
         refreshToken = data.token.refreshToken;
         getCompany(token);
         localStorage.setItem("token", token);
         localStorage.setItem("refreshToken", refreshToken);
+        document.getElementById("main").style.display = "none";
+        document.getElementById("home").style.display = "block";
         socket.close();
     });
     var href = "https://webapi.timedoctor.com/oauth/v2/auth?client_id=735_3hhq9n04qlq8ss8gowg0sog8c44kkc0oww8gkog4w44c04kcos&response_type=code&redirect_uri=http://34.210.113.0:5000/callback";
@@ -51,7 +52,6 @@ function refresh() {
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             var data = JSON.parse(this.responseText);
-            console.log(data);
             token = data.access_token;
             refreshToken = data.refresh_token;
             localStorage.setItem("token", token);
@@ -83,7 +83,6 @@ function getUsers(token, companyId) {
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             var data = JSON.parse(this.responseText);
-            console.log(data);
             var userTable = document.getElementById("users");
             userTable.style.display = 'table';
             var tbody = userTable.getElementsByTagName('tbody')[0];
@@ -127,7 +126,6 @@ function getTask(companyId, userId) {
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             var data = JSON.parse(this.responseText);
-            console.log(data);
             var row = document.getElementById(userId);
             row.style.display = "table-row";
             var cell1 = row.cells[0];
