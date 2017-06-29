@@ -3,8 +3,11 @@ var token = localStorage.getItem("token");
 var refreshToken = localStorage.getItem("refreshToken");
 
 if (token == "null" || !token) {
-    authenticate();
+    document.getElementById("main").style.display = "block";
+    document.getElementById("home").style.display = "none";
 } else {
+    document.getElementById("main").style.display = "none";
+    document.getElementById("home").style.display = "block";
     refresh();
 }
 
@@ -13,6 +16,11 @@ window.onload = function (e) {
     logoutBtn.onclick = function () {
         localStorage.setItem("token", null);
         window.close();
+    };
+
+    var loginBtn = document.getElementById('login');
+    logoutBtn.onclick = function () {
+        authenticate();
     };
 }
 
